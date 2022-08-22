@@ -1,0 +1,61 @@
+<div>
+  <h2 id="page-heading" data-cy="PersonneHeading">
+    <span jhiTranslate="jhipsterApp.personne.home.title">Personnes</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="jhipsterApp.personne.home.refreshListLabel">Actualiser la liste</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="personnes?.length === 0">
+    <span jhiTranslate="jhipsterApp.personne.home.notFound">Aucun Personne trouvé</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="personnes && personnes.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="prenom">
+            <span jhiTranslate="jhipsterApp.personne.prenom">Prenom</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="nom"><span jhiTranslate="jhipsterApp.personne.nom">Nom</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="addresse">
+            <span jhiTranslate="jhipsterApp.personne.addresse">Addresse</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let personne of personnes; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/personne', personne.id, 'view']">{{ personne.id }}</a>
+          </td>
+          <td>{{ personne.prenom }}</td>
+          <td>{{ personne.nom }}</td>
+          <td>{{ personne.addresse }}</td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/personne', personne.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">Voir</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

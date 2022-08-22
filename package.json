@@ -151,6 +151,8 @@
     "reportFile": "TESTS-results-sonar.xml"
   },
   "overrides": {
-    "webpack": "5.74.0"
+    "chevrotain@10.1.2": {
+      "@chevrotain/gast": "10.1.2"
+    }
   }
 }

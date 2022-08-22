@@ -1,0 +1,36 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="personne">
+      <h2 data-cy="personneDetailsHeading"><span jhiTranslate="jhipsterApp.personne.detail.title">Personne</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ personne.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterApp.personne.prenom">Prenom</span></dt>
+        <dd>
+          <span>{{ personne.prenom }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterApp.personne.nom">Nom</span></dt>
+        <dd>
+          <span>{{ personne.nom }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterApp.personne.addresse">Addresse</span></dt>
+        <dd>
+          <span>{{ personne.addresse }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Retour</span>
+      </button>
+    </div>
+  </div>
+</div>

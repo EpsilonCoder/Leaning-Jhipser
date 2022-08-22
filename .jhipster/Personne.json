@@ -1,0 +1,24 @@
+{
+  "changelogDate": "20220821214132",
+  "fields": [
+    {
+      "fieldName": "prenom",
+      "fieldType": "String",
+      "fieldValidateRules": []
+    },
+    {
+      "fieldName": "nom",
+      "fieldType": "String",
+      "fieldValidateRules": []
+    },
+    {
+      "fieldName": "addresse",
+      "fieldType": "String"
+    }
+  ],
+  "name": "Personne",
+  "pagination": "no",
+  "readOnly": true,
+  "relationships": [],
+  "service": "no"
+}
